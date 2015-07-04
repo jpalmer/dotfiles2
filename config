@@ -1,0 +1,20 @@
+Host headnode
+    User jpal8929
+    ProxyCommand ssh silliac nc %h %p
+    Hostname headnode.physics.usyd.edu.au
+Host silliac 
+    User jpal8929
+    Hostname silliac.physics.usyd.edu.au
+    KeepAlive yes
+    ServerAliveInterval 10
+    TCPKeepAlive yes
+Host manitou
+    Hostname manitou.physics.usyd.edu.au
+Host *
+    KeepAlive yes
+    ServerAliveInterval 10
+host protagonist
+    User john
+    Hostname protagonist.physics.usyd.edu.au
+    ProxyCommand ssh -Y jpal8929@silliac -W %h:%p
+
