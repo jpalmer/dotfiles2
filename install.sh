@@ -48,11 +48,12 @@ MAP[~/.config/base16-shell]="base16-shell"
 mkdir -p ~/.nvim/autoload
 curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > ~/.nvim/autoload/plug.vim
 mkdir -p ~/.config
+set -x
 for K in "${!MAP[@]}"; 
 do 
 
 echo $K --- ${MAP[$K]}; 
-ln -sf $(pwd)/${MAP[$K]} $K
+ln -nsf $(pwd)/${MAP[$K]} $K
 done
 nvim -c "PlugInstall" -c ":q" -c ":q"
 
