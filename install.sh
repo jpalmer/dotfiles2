@@ -30,7 +30,7 @@ fi
 #Install stuff with yaourt
 sudo pacman -Syu
 #pacman stuff
-sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace
+sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz
 #aur stuff - use manual url as aur.archlinux.com doesn't seem to work
      yaourt -S --needed --noconfirm neovim-git ttf-vista-fonts
 pip install --user powerline-status
@@ -48,7 +48,6 @@ MAP[~/.config/base16-shell]="base16-shell"
 mkdir -p ~/.nvim/autoload
 curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > ~/.nvim/autoload/plug.vim
 mkdir -p ~/.config
-set -x
 for K in "${!MAP[@]}"; 
 do 
 
