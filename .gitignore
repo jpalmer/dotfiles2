@@ -2,3 +2,4 @@ pkgquery.tar.gz
 yaourt.tar.gz
 package-query/
 yaourt
+*.swp

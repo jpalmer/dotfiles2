@@ -44,6 +44,7 @@ MAP[~/.bashrc]="bashrc"
 MAP[~/.nvimrc]="nvimrc"
 MAP[~/.Xdefaults]="Xdefaults"
 MAP[~/.config/powerline]="powerline"
+MAP[~/.config/base16-shell]="base16-shell"
 mkdir -p ~/.nvim/autoload
 curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > ~/.nvim/autoload/plug.vim
 mkdir -p ~/.config
@@ -53,4 +54,6 @@ do
 echo $K --- ${MAP[$K]}; 
 ln -sf $(pwd)/${MAP[$K]} $K
 done
-nvim -c "PlugInstall"
+nvim -c "PlugInstall" -c ":q" -c ":q"
+
+ln -sf $(pip show -f powerline-status | grep Location | awk '{print $2}')/$(pip show -f powerline-status | grep powerline.sh | grep bash | tr -d ' ') ~/.config/powerline.sh
