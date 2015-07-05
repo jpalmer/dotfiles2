@@ -30,9 +30,9 @@ fi
 #Install stuff with yaourt
 sudo pacman -Syu
 #pacman stuff
-sudo pacman -S --needed --noconfirm texlive-most python-pip
+sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace
 #aur stuff - use manual url as aur.archlinux.com doesn't seem to work
-     yaourt -S --needed --noconfirm neovim-git
+     yaourt -S --needed --noconfirm neovim-git ttf-vista-fonts
 pip install --user powerline-status
 
 
@@ -57,3 +57,7 @@ done
 nvim -c "PlugInstall" -c ":q" -c ":q"
 
 ln -sf $(pip show -f powerline-status | grep Location | awk '{print $2}')/$(pip show -f powerline-status | grep powerline.sh | grep bash | tr -d ' ') ~/.config/powerline.sh
+fontforge -script fontpatcher/scripts/powerline-fontpatcher $(fc-match --verbose consolas | grep file | tr '"' ' ' | awk '{print $2}')
+mkdir -p ~/.fonts
+mv Consolas\ for\ Powerline.ttf ~/.fonts
+fc-cache
