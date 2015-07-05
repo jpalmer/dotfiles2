@@ -1,6 +1,3 @@
-xterm*saveLines: 4096
-xterm*faceName: Consolas\ for\ Powerline:size=10
-dzen2.font:  consolas:size=10
 URxvt.font:     xft:Droid\ Sans\ Mono:size=10,style=regular:antialias=false,xft:Consolas\ for\ Powerline:size=10,style=Regular
 #URxvt.boldfont: xft:Droid\ Sans\ Mono:size=10,style=regular:antialias=false,xft:Consolas\ for\ Powerline:size=10,style=Regular
 URxvt.boldFont:
