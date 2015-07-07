@@ -1,5 +1,4 @@
 " vim:fdm=marker
-
 "  Plugins {{{
 call plug#begin('~/.nvim/plugged')
 Plug 'chriskempson/base16-vim'          "colours
@@ -14,6 +13,9 @@ Plug 'tpope/vim-sensible'               "sets a bunch of defaults
 Plug 'bling/vim-airline'                "Powerline like behaviour from nvim
 Plug 'weynhamz/vim-plugin-minibufexpl'  "show open files at top of window
 Plug 'vim-scripts/restore_view.vim'     "save/ restore view - incl position in file
+Plug 'nathanaelkane/vim-indent-guides'  "show indent with color
+Plug 'kien/rainbow_parentheses.vim'     "rainbow coloured brackets to show matching
+Plug 'Valloric/YouCompleteMe', {'do' : ' ./install.sh --clang-completer'}            "semantic completion
 call plug#end()
 " }}}
 " basic vim config {{{
@@ -48,6 +50,12 @@ nnoremap k gk
 nnoremap <tab> %
 nnoremap <space> za
 "}}}
+"Keys for navigating splits - make it use ctrl+hjkl {{{
+:nmap <silent> <C-h> <C-W><C-h>
+:nmap <silent> <C-j> <C-W><C-j>
+:nmap <silent> <C-k> <C-W><C-k>
+:nmap <silent> <C-l> <C-W><C-l>
+"}}}
 "Quckfix window {{{
 autocmd QuickFixCmdPost [^l]* nested cwindow    "open quickfix window on make
 autocmd QuickFixCmdPost    l* nested lwindow
@@ -59,7 +67,11 @@ let g:airline_powerline_fonts=1         "use powerline fonts in airline
 " }}}
 "colorscheme {{{
 let base16colorspace=256                "have 256 colors
-colorscheme base16-default              "pick colorscheme
+set background=light
+colorscheme base16-solarized            "pick colorscheme
+if &diff                                "the default vim colorscheme is much better for diff mode - could maybe change this though
+    colorscheme default
+endif
 "}}}
 "minibufexpl {{{
 let g:miniBufExplUseSingleClick=1       "minibufexpl uses single click
@@ -70,4 +82,27 @@ nmap <F8> :TagbarToggle<CR>
 "GUI options {{{
 set guioptions-=L       "hide scroll bar
 set guioptions-=r
+"}}}
+"Rainbow parentheses options {{{
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+"}}}
+"indent guides parameters {{{
+set background=light
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=15
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=21
+au VimEnter * IndentGuidesEnable
+"}}}
+"youcompleteme options {{{
+let g:ycm_key_invoke_completion= '<Tab>' "use tab for completion
+let g:ycm_filetype_blacklist= {'tex' : 1}
+"}}}
+"ignore files for completion {{{
+set wildignore+=*/jobtest/*,jobtest
+let g:ctrlp_custom_ignore = {
+            \ 'dir':'\v[\/]\.(jobtest)$',
+            \}
 "}}}
