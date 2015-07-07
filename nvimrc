@@ -15,7 +15,7 @@ Plug 'weynhamz/vim-plugin-minibufexpl'  "show open files at top of window
 Plug 'vim-scripts/restore_view.vim'     "save/ restore view - incl position in file
 Plug 'nathanaelkane/vim-indent-guides'  "show indent with color
 Plug 'kien/rainbow_parentheses.vim'     "rainbow coloured brackets to show matching
-Plug 'Valloric/YouCompleteMe', {'do' : ' ./install.sh --clang-completer'}            "semantic completion
+Plug 'Valloric/YouCompleteMe', {'do' : ' ./install.sh --clang-completer --system-libclang'}            "semantic completion
 call plug#end()
 " }}}
 " basic vim config {{{

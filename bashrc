@@ -208,4 +208,4 @@ export PATH=$PATH:$GOPATH/bin
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 alias urxvt2='urxvt -fn "xft:Droid Sans Mono:size=10,style=regular:antialias=false,xft:Consolas for Powerline:size=10,style=Regular" -fb "xft:Droid Sans Mono:size=10,style=regular:antialias=false,xft:Consolas for Powerline:size=10,style=Regular"    -vb +sb'
-
+alias vim='nvim'
