@@ -30,7 +30,7 @@ fi
 #Install stuff with yaourt
 sudo pacman -Syu
 #pacman stuff
-sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot
+sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish
 #aur stuff - use manual url as aur.archlinux.com doesn't seem to work
      yaourt -S --needed --noconfirm neovim-git ttf-vista-fonts python-neovim
 pip install --user powerline-status
@@ -48,10 +48,10 @@ MAP[~/.config/base16-shell]="base16-shell"
 mkdir -p ~/.nvim/autoload
 curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > ~/.nvim/autoload/plug.vim
 mkdir -p ~/.config
-for K in "${!MAP[@]}"; 
-do 
+for K in "${!MAP[@]}";
+do
 
-echo $K --- ${MAP[$K]}; 
+echo $K --- ${MAP[$K]};
 ln -nsf $(pwd)/${MAP[$K]} $K
 done
 nvim -c "PlugInstall" -c ":q" -c ":q"
@@ -61,6 +61,3 @@ fontforge -script fontpatcher/scripts/powerline-fontpatcher $(fc-match --verbose
 mkdir -p ~/.fonts
 mv Consolas\ for\ Powerline.ttf ~/.fonts
 fc-cache
-curl http://gnome-look.org/CONTENT/content-files/140787-LargeCursors.tar.bz2 > t.tar.bz2
-tar -xvf t.tar.bz2 
-sudo cp -R Large\ Mouse\ Cursors/ /usr/share/icons/

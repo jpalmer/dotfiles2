@@ -4,6 +4,4 @@ URxvt.boldFont:
 URxvt.scrollBar: false
 URxvt.visualBell: true
 URxvt.cursorBlink: true
-URxvt.termName: rxvt-256color
-Xcursor.theme: Large\ Mouse\ Cursors
-Xcursor.size: 200
+Xft.dpi: 170
