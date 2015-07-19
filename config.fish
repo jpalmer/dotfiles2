@@ -1,6 +1,5 @@
 set --global --export LANG en_AU.UTF-8
 set -U fish_user_paths $fish_user_paths ~/.local/bin
-alias vim="nvim"
 set --export --global HTTP_PROXY http://web-cache.usyd.edu.au:8080
 set --export --global http_proxy $HTTP_PROXY
 set --export --global HTTPS_PROXY $HTTP_PROXY
@@ -11,6 +10,7 @@ abbr -a gdh git diff HEAD
 abbr -a gcm git commit -m
 abbr -a gs git status
 abbr -a ga git add .
+abbr -a vim nvim
 alias nmatlab matlab -nodesktop -nosplash
 if status --is-interactive
     . /etc/profile.d/autojump.fish
