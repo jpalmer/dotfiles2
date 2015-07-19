@@ -7,11 +7,11 @@ set --export --global HTTPS_PROXY $HTTP_PROXY
 set --export --global https_proxy $HTTP_PROXY
 set --export --global all_proxy $HTTP_PROXY
 set --export --global ALL_PROXY $HTTP_PROXY
-alias gdh='git diff HEAD'
-alias gcm='git commit -m'
-alias gs='git status'
-alias ga='git add .'
-alias nmatlab='matlab -nodesktop -nosplash'
+abbr -a gdh git diff HEAD
+abbr -a gcm git commit -m
+abbr -a gs git status
+abbr -a ga git add .
+alias nmatlab matlab -nodesktop -nosplash
 if status --is-interactive
     . /etc/profile.d/autojump.fish
     eval sh $HOME/.config/base16-shell/base16-solarized.light.sh

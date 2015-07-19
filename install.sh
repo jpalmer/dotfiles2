@@ -64,3 +64,4 @@ fontforge -script fontpatcher/scripts/powerline-fontpatcher $(fc-match --verbose
 mkdir -p ~/.fonts
 mv Consolas\ for\ Powerline.ttf ~/.fonts
 fc-cache
+fish_update_completions
