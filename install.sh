@@ -30,9 +30,11 @@ fi
 #Install stuff with yaourt
 sudo pacman -Syu
 #pacman stuff
-sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish build-essential evince eog
-#aur stuff - use manual url as aur.archlinux.com doesn't seem to work
-     yaourt -S --needed --noconfirm neovim-git ttf-vista-fonts python-neovim
+sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish base-devel evince eog htop
+#aur stuff 
+    #yaourt dep resolution broken
+    yaourt -S --needed --noconfirm python2-trollius
+    yaourt -S --needed --noconfirm neovim-git ttf-vista-fonts python-neovim  python2-neovim
 pip install --user powerline-status
 sudo  pkgfile --update #build the pkgfile database
 
@@ -45,6 +47,7 @@ MAP[~/.nvimrc]="nvimrc"
 MAP[~/.Xdefaults]="Xdefaults"
 MAP[~/.config/powerline]="powerline"
 MAP[~/.config/base16-shell]="base16-shell"
+MAP[~/.config/fish/config.fish]="config.fish"
 mkdir -p ~/.nvim/autoload
 curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > ~/.nvim/autoload/plug.vim
 mkdir -p ~/.config
@@ -54,7 +57,7 @@ do
 echo $K --- ${MAP[$K]};
 ln -nsf $(pwd)/${MAP[$K]} $K
 done
-nvim -c "PlugInstall" -c ":q" -c ":q"
+nvim -c "PlugInstall" -c ":q" -c ":q" -c ":q"
 
 ln -sf $(pip show -f powerline-status | grep Location | awk '{print $2}')/$(pip show -f powerline-status | grep powerline.sh | grep bash | tr -d ' ') ~/.config/powerline.sh
 fontforge -script fontpatcher/scripts/powerline-fontpatcher $(fc-match --verbose consolas | grep file | tr '"' ' ' | awk '{print $2}')
