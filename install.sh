@@ -30,7 +30,7 @@ fi
 #Install stuff with yaourt
 sudo pacman -Syu
 #pacman stuff
-sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish
+sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish build-essential evince eog
 #aur stuff - use manual url as aur.archlinux.com doesn't seem to work
      yaourt -S --needed --noconfirm neovim-git ttf-vista-fonts python-neovim
 pip install --user powerline-status
