@@ -12,6 +12,7 @@ abbr -a gs git status
 abbr -a ga git add .
 abbr -a vim nvim
 abbr -a nmatlab matlab -nodesktop -nosplash
+abbr -a sl ls
 if status --is-interactive
     . /etc/profile.d/autojump.fish
     eval sh $HOME/.config/base16-shell/base16-solarized.light.sh
