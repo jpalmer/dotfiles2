@@ -2,6 +2,7 @@
 #safe mode
 set -euo pipefail
 IFS=$'\n\t'
+git submodule update
 #install yaourt - first pkgquery
 if  [ -n   "$(pacman -Qs package-query)" ]
 then
