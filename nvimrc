@@ -15,7 +15,7 @@ Plug 'weynhamz/vim-plugin-minibufexpl'  "show open files at top of window
 Plug 'vim-scripts/restore_view.vim'     "save/ restore view - incl position in file
 Plug 'nathanaelkane/vim-indent-guides'  "show indent with color
 Plug 'kien/rainbow_parentheses.vim'     "rainbow coloured brackets to show matching
-Plug 'Valloric/YouCompleteMe', {'do' : ' ./install.sh --clang-completer --system-libclang'}            "semantic completion
+"Plug 'Valloric/YouCompleteMe', {'do' : ' ./install.sh --clang-completer --system-libclang'}            "semantic completion
 call plug#end()
 " }}}
 " basic vim config {{{
@@ -97,8 +97,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=21
 au VimEnter * IndentGuidesEnable
 "}}}
 "youcompleteme options {{{
+let g:ycm_extra_conf_globlist = ['*/spikegrid/*']
 let g:ycm_key_invoke_completion= '<Tab>' "use tab for completion
-let g:ycm_filetype_blacklist= {'tex' : 1}
 "}}}
 "ignore files for completion {{{
 set wildignore+=*/jobtest/*,jobtest
@@ -106,3 +106,4 @@ let g:ctrlp_custom_ignore = {
             \ 'dir':'\v[\/]\.(jobtest)$',
             \}
 "}}}
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 "change cursor shape in different modes

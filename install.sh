@@ -31,7 +31,7 @@ fi
 #Install stuff with yaourt
 sudo pacman -Syu
 #pacman stuff
-sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish base-devel evince eog htop
+sudo pacman -S --needed --noconfirm texlive-most python-pip fontforge xclip strace opencv doxygen dialog graphviz clang pkgfile xorg-xsetroot fish base-devel evince eog htop wget
 #aur stuff 
     #yaourt dep resolution broken
     yaourt -S --needed --noconfirm python2-trollius
