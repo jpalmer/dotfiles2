@@ -1,7 +1,7 @@
 " vim:fdm=marker
 "  Plugins {{{
 call plug#begin('~/.nvim/plugged')
-Plug 'chriskempson/base16-vim'          "colours
+"Plug 'chriskempson/base16-vim'          "colours
 Plug 'majutsushi/tagbar'                "for a C program shows the functions / definitions in a bar
 Plug 'kien/ctrlp.vim'                   "better way to open files
 Plug 'godlygeek/tabular'                "align stuff
@@ -13,8 +13,11 @@ Plug 'tpope/vim-sensible'               "sets a bunch of defaults
 Plug 'bling/vim-airline'                "Powerline like behaviour from nvim
 Plug 'weynhamz/vim-plugin-minibufexpl'  "show open files at top of window
 Plug 'vim-scripts/restore_view.vim'     "save/ restore view - incl position in file
-Plug 'nathanaelkane/vim-indent-guides'  "show indent with color
+"Plug 'nathanaelkane/vim-indent-guides'  "show indent with color
 Plug 'kien/rainbow_parentheses.vim'     "rainbow coloured brackets to show matching
+Plug 'morhetz/gruvbox'                  "new color scheme
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'
 "Plug 'Valloric/YouCompleteMe', {'do' : ' ./install.sh --clang-completer --system-libclang'}            "semantic completion
 call plug#end()
 " }}}
@@ -66,11 +69,12 @@ cabbrev make make!
 let g:airline_powerline_fonts=1         "use powerline fonts in airline
 " }}}
 "colorscheme {{{
-let base16colorspace=256                "have 256 colors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "full color
+"let base16colorspace=256                "have 256 colors
 set background=light
-colorscheme base16-solarized            "pick colorscheme
+colorscheme gruvbox            "pick colorscheme
 if &diff                                "the default vim colorscheme is much better for diff mode - could maybe change this though
-    colorscheme default
+ "   colorscheme default
 endif
 "}}}
 "minibufexpl {{{
@@ -90,11 +94,11 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 "}}}
 "indent guides parameters {{{
-set background=light
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=15
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=21
-au VimEnter * IndentGuidesEnable
+let g_gruvbox_invert_indent_guides = 1
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=white   ctermbg=white
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=lightgrey
+"au VimEnter * IndentGuidesEnable
 "}}}
 "youcompleteme options {{{
 let g:ycm_extra_conf_globlist = ['*/spikegrid/*']
@@ -107,3 +111,7 @@ let g:ctrlp_custom_ignore = {
             \}
 "}}}
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 "change cursor shape in different modes
+
+
+set conceallevel=0 "some files are having this changed - very bad
+let g:indentLine_fileTypeExclude= ['tex', 'latex']
